@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div>
+        <div class="text-center position-relative">
+        <h1>{{ discussion["title"] }} </h1>
+        <span> By: {{ username }}, {{ discussion["post_date"] }} </span>
+        </div>
+    </div>
+    <div class="col-md-4">{{ discussion['content'] }}</div>
+    <h4 style="margin-top:10px">Comments:</h4>
+    <table>
+    <tbody>
+        {% for comment in comments %}
+        <tr></tr>
+            <td>By: {{ comment['username'] }}, {{ comment['comment_date'] }}:</td>
+            <td>{{ comment['comment'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <div style="margin-top:10px">
+        <form class="form-control" method="post">
+            <div class="form-group">
+                <label for="comment">Add Comment</label>
+                <input type="Add comment" class="form-control" id="comment" aria-describedby="emailHelp" name="comment" placeholder="Add comment">
+            </div>
+            <input type="submit" value="Comment" name="Comment">
+        </form>
+    </div>
+{% endblock %}

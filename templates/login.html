@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bookreads</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="goodreads, bookreads" />
+  <meta name="author" content="Kumar Ayush" />
+  <link rel="shortcut icon" href="/static/img/logo.ico">
+
+  <link href='/static/css/style.css' rel='stylesheet' type='text/css'>
+  <script src="/static/js/terminal_fill.js" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">bookreads</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="form-inline my-2 my-lg-0 ml-auto" method="post">
+            <input class="form-control ml-5 mr-sm-2" type="username" placeholder="username" aria-label="username" name="username">
+            <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="password" name="password">
+            <input type="submit" value="Log in" name="log-in">
+            {% block login %}
+                {% if error ==  true %}
+                    <div class="alert alert-danger">{{ login }}</div>
+                {% endif %}
+            {% endblock %}
+        </form>
+    </nav>
+    <div class="col-sm-4 offset-sm-3 " style="margin-top:100px">
+    <form class="ml-5 form-control" method="post">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" id="username" name="username" placeholder="Enter Username">
+            </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+        <input type="submit" value="Sign Up" name="sign-up">
+        {% block signup %}
+            {% if error1 ==  true %}
+                <div class="alert alert-danger">{{ signup }}</div>
+            {% endif %}
+        {% endblock %}
+    </form>
+    </div>
+</body>

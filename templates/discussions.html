@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Sl. No.</th>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Post Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for discussion in discussions %}
+        <tr>
+          <td><a href="{{ url_for('discussion', discussion_id = discussion.discussion_id) }}">{{ loop.index + (page - 1) * per_page }} </a></td>
+          <td><a href="{{ url_for('discussion', discussion_id = discussion.discussion_id) }}">{{ discussion['title'] }}</a></td>
+          <td><a href="{{ url_for('discussion', discussion_id = discussion.discussion_id) }}">{{ discussion['content'] }}</a></td>
+          <td><a href="{{ url_for('discussion', discussion_id = discussion.discussion_id) }}">{{ discussion['post_date'] }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {{ pagination.links }}
+</div>
+{% endblock %}
