@@ -2,4 +2,4 @@ Flask
 Flask-Session
 psycopg2-binary
 SQLAlchemy
-gunicorn
+gunicorn==19.9.0
